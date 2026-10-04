@@ -21,6 +21,7 @@ const SITE_DATA = {
       { label: "Profil", href: "#profil" },
       { label: "Visi & Misi", href: "#visimisi" },
       { label: "Program Kerja", href: "#proker" },
+      { label: "Adiwiyata", href: "#adiwiyata" },
       { label: "Hitung Mundur", href: "#countdown" },
       { label: "FAQ", href: "#faq" },
     ],
@@ -198,17 +199,48 @@ const SITE_DATA = {
       tag: "🔥 Nyatakan Eksistensi",
       tagBg: "bg-brandYellow",
     },
-    {
-      id: 3,
-      badge: "Proker 3",
-      icon: "🌱",
-      iconBg: "bg-brandCyan",
-      title: "Dukungan Adiwiyata",
-      desc: "Program dukungan dan aksi nyata terhadap gerakan Adiwiyata sekolah yang berfokus pada konservasi keanekaragaman hayati lingkungan sekolah serta optimalisasi program pilah sampah organik dan anorganik demi mewujudkan SMAN 29 yang asri, bersih, dan berkelanjutan.",
-      tag: "🌱 Konservasi & Pilah Sampah",
-      tagBg: "bg-brandCyan",
-    }
   ],
+
+  // 7. SEKSI KHUSUS DUKUNGAN PROGRAM ADIWIYATA SEKOLAH
+  adiwiyata: {
+    badge: "🌱 Aksi Nyata Lingkungan Hidup",
+    title: "Dukungan Penuh Program Adiwiyata",
+    subtitle: "Paslon 02 berkomitmen penuh dan siap bergerak nyata mendukung kesuksesan program Adiwiyata SMAN 29 Jakarta menuju sekolah hijau, bersih, dan berkelanjutan.",
+    declaration: "Sebagai calon pemimpin MPK, Bintany & Revano menyatakan komitmen teguh untuk mengawal budaya peduli lingkungan hidup di lingkungan sekolah melalui 2 fokus utama:",
+    pillars: [
+      {
+        id: "01",
+        badge: "Fokus 1",
+        icon: "🌿",
+        iconBg: "bg-emerald-300",
+        title: "Konservasi Keanekaragaman Hayati",
+        desc: "Dukungan penuh terhadap pelestarian keanekaragaman hayati di lingkungan sekolah melalui pemeliharaan taman kelas, perluasan sudut hijau, dan kampanye kepedulian terhadap flora ekosistem SMAN 29.",
+        tag: "🌿 Konservasi Keanekaragaman Hayati",
+        tagBg: "bg-emerald-300",
+        points: [
+          "Mendorong pemeliharaan tanaman & sudut hijau di setiap kelas",
+          "Keterlibatan aktif siswa dalam perawatan taman & ruang terbuka hijau",
+          "Kampanye edukatif mengenai kekayaan flora sekolah demi iklim belajar yang asri"
+        ]
+      },
+      {
+        id: "02",
+        badge: "Fokus 2",
+        icon: "♻️",
+        iconBg: "bg-brandCyan",
+        title: "Program Pilah Sampah",
+        desc: "Optimalisasi pembiasaan pilah sampah organik dan anorganik secara terpadu di seluruh lingkungan SMAN 29 Jakarta, disertai edukasi pengurangan limbah plastik sekali pakai.",
+        tag: "♻️ Program Pilah Sampah",
+        tagBg: "bg-brandCyan",
+        points: [
+          "Optimalisasi fasilitas pemilahan sampah organik dan anorganik",
+          "Gerakan pengurangan sampah plastik sekali pakai (Zero Waste Habit)",
+          "Edukasi dan aksi kolaboratif daur ulang bernilai guna di kalangan siswa"
+        ]
+      }
+    ],
+    motto: "🌱 Sekolah Hijau, Siswa Berkarakter — Paslon 02 Siap Mengawal Adiwiyata SMAN 29!"
+  },
 
   // 7. HITUNG MUNDUR (COUNTDOWN)
   countdown: {

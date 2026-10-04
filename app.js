@@ -341,6 +341,97 @@ function renderProker() {
 }
 
 /**
+ * Render Seksi Khusus Dukungan Program Adiwiyata
+ */
+function renderAdiwiyata() {
+  const container = document.getElementById("adiwiyata-container");
+  if (!container || !data.adiwiyata) return;
+
+  const a = data.adiwiyata;
+
+  const pillarsHtml = a.pillars
+    .map(
+      (p) => `
+      <div class="bg-white p-6 md:p-8 neo-border neo-shadow-lg flex flex-col justify-between adiwiyata-card">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 ${p.iconBg} neo-border-sm flex items-center justify-center font-black text-2xl neo-shadow">
+              ${p.icon}
+            </div>
+            <span class="text-xs font-black bg-brandBlack text-brandYellow px-2.5 py-1 neo-border-sm uppercase tracking-wide">
+              ${p.badge}
+            </span>
+          </div>
+
+          <h3 class="heading-font text-2xl font-black uppercase mb-3 text-brandBlack">
+            ${p.title}
+          </h3>
+
+          <p class="text-sm font-semibold text-neutral-700 leading-relaxed mb-4">
+            ${p.desc}
+          </p>
+
+          <div class="space-y-2 mt-4 pt-4 border-t-2 border-brandBlack/20">
+            <p class="text-xs font-black uppercase text-brandBlack tracking-wider mb-2 flex items-center gap-1.5">
+              <span>📌</span> Rencana Aksi Nyata:
+            </p>
+            ${p.points
+              .map(
+                (pt) => `
+              <div class="flex items-start gap-2 text-xs font-semibold text-neutral-700">
+                <span class="text-emerald-600 font-black mt-0.5">✔</span>
+                <span>${pt}</span>
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t-2 border-brandBlack">
+          <span class="text-xs font-black uppercase ${p.tagBg} px-2 py-1.5 neo-border-sm block text-center text-brandBlack">
+            ${p.tag}
+          </span>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  container.innerHTML = `
+    <!-- Banner Deklarasi Kesiapan Dukung Adiwiyata -->
+    <div class="bg-emerald-300 p-6 md:p-8 neo-border neo-shadow-lg mb-10 relative overflow-hidden">
+      <div class="relative z-10 max-w-3xl">
+        <span class="inline-block bg-brandBlack text-white font-extrabold text-xs uppercase px-3 py-1 neo-border-sm mb-3">
+          Komitmen Hijau Paslon 02
+        </span>
+        <h3 class="heading-font text-2xl md:text-3xl font-black uppercase text-brandBlack leading-tight mb-2">
+          Siap Mendukung Penuh Gerakan Adiwiyata Sekolah!
+        </h3>
+        <p class="text-sm md:text-base font-semibold text-brandBlack leading-relaxed">
+          ${a.declaration}
+        </p>
+      </div>
+      <div class="absolute -right-4 -bottom-6 heading-font text-8xl md:text-9xl font-black text-brandBlack/10 select-none pointer-events-none">
+        ECO
+      </div>
+    </div>
+
+    <!-- 2 Pilar Adiwiyata Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      ${pillarsHtml}
+    </div>
+
+    <!-- Motto Footer Adiwiyata -->
+    <div class="mt-8 bg-brandBlack text-white p-4 md:p-5 neo-border neo-shadow text-center">
+      <p class="heading-font font-black text-sm md:text-base tracking-wide text-brandYellow">
+        ${a.motto}
+      </p>
+    </div>
+  `;
+}
+
+/**
  * Render FAQ Accordion
  */
 let isFaqExpanded = false;
@@ -623,6 +714,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCandidates();
   renderMisi();
   renderProker();
+  renderAdiwiyata();
   renderFaq();
   renderAspirasiFeatures();
   renderFooterNav();

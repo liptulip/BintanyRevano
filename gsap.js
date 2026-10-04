@@ -353,15 +353,17 @@
       if (tabBtns.length > 0) {
         gsap.from(tabBtns, {
           scrollTrigger: {
-            trigger: "#candidate-tabs-container",
-            start: "top 82%",
+            trigger: profileSection,
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
-          scale: 0.75,
+          scale: 0.85,
           opacity: 0,
-          stagger: 0.25,
-          duration: 0.65,
-          delay: 0.35,
-          ease: "back.out(2)",
+          stagger: 0.12,
+          duration: 0.5,
+          delay: 0.15,
+          ease: "back.out(1.8)",
+          clearProps: "all",
         });
       }
 
@@ -369,14 +371,16 @@
       if (cardsContainer) {
         gsap.from(cardsContainer, {
           scrollTrigger: {
-            trigger: cardsContainer,
-            start: "top 78%",
+            trigger: profileSection,
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
-          y: 50,
+          y: 35,
           opacity: 0,
-          duration: 0.9,
-          delay: 0.45,
-          ease: "power3.out",
+          duration: 0.6,
+          delay: 0.25,
+          ease: "power2.out",
+          clearProps: "all",
         });
       }
     }
@@ -460,7 +464,46 @@
       }
     }
 
-    // E. Hitung Mundur Section (#countdown)
+    // E. Dukungan Program Adiwiyata Section (#adiwiyata)
+    const adiwiyataSection = document.getElementById("adiwiyata");
+    if (adiwiyataSection) {
+      const ecoBanner = adiwiyataSection.querySelector(".bg-emerald-300");
+      if (ecoBanner) {
+        gsap.from(ecoBanner, {
+          scrollTrigger: {
+            trigger: ecoBanner,
+            start: "top 82%",
+          },
+          scale: 0.9,
+          opacity: 0,
+          duration: 0.75,
+          delay: 0.2,
+          ease: "power3.out",
+          clearProps: "all",
+        });
+      }
+
+      const adiwiyataCards = adiwiyataSection.querySelectorAll(".adiwiyata-card");
+      if (adiwiyataCards.length > 0) {
+        gsap.from(adiwiyataCards, {
+          scrollTrigger: {
+            trigger: adiwiyataSection.querySelector(".grid"),
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+          scale: 0.35,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.85,
+          delay: 0.2,
+          ease: "back.out(1.7)",
+          transformOrigin: "center center",
+          clearProps: "all",
+        });
+      }
+    }
+
+    // F. Hitung Mundur Section (#countdown)
     const countdownSection = document.getElementById("countdown");
     if (countdownSection) {
       const timerTiles = countdownSection.querySelectorAll(".grid > div");
@@ -626,7 +669,29 @@
       });
     });
 
-    // D. Balok Digital Timer Countdown Hover (Hanya scale membesar, tidak naik)
+    // D. Kartu Komitmen Adiwiyata Hover Animation (HANYA scale membesar, TIDAK naik)
+    const adiwiyataCards = document.querySelectorAll(".adiwiyata-card");
+    adiwiyataCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          scale: 1.05,
+          duration: 0.25,
+          ease: "power2.out",
+          transformOrigin: "center center",
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          scale: 1,
+          duration: 0.25,
+          ease: "power2.out",
+          clearProps: "transform",
+        });
+      });
+    });
+
+    // E. Balok Digital Timer Countdown Hover (Hanya scale membesar, tidak naik)
     const timerTiles = document.querySelectorAll("#countdown .grid > div");
     timerTiles.forEach((tile) => {
       tile.addEventListener("mouseenter", () => {

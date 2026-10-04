@@ -1,0 +1,153 @@
+/* ==========================================================================
+   SMAN 29 JAKARTA - PASLON 02 MPK (BINTANY & REVANO)
+   Neo-Brutalist Design System Stylesheet
+   ========================================================================== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;900&display=swap');
+
+/* CSS Variables */
+:root {
+  --brand-yellow: #FFDE59;
+  --brand-blue: #0EA5E9;
+  --brand-cyan: #38BDF8;
+  --brand-off-white: #FAFAFA;
+  --brand-black: #111111;
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Global Reset & Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--brand-off-white);
+  color: var(--brand-black);
+}
+
+/* Typography Helpers */
+.heading-font {
+  font-family: var(--font-display);
+}
+
+/* Brand Color Utility Helpers (Fallback & Core) */
+.bg-brandYellow { background-color: #FFDE59; }
+.bg-brandCyan { background-color: #38BDF8; }
+.bg-brandBlue { background-color: #0EA5E9; }
+.bg-brandOffWhite { background-color: #FAFAFA; }
+.bg-brandBlack { background-color: #111111; }
+
+.text-brandYellow { color: #FFDE59; }
+.text-brandCyan { color: #38BDF8; }
+.text-brandBlue { color: #0EA5E9; }
+.text-brandBlack { color: #111111; }
+
+.border-brandBlack { border-color: #111111; }
+.border-brandYellow { border-color: #FFDE59; }
+.border-brandCyan { border-color: #38BDF8; }
+
+/* Neo-Brutalist Borders */
+.neo-border {
+  border: 3px solid var(--brand-black);
+}
+
+.neo-border-sm {
+  border: 2px solid var(--brand-black);
+}
+
+.neo-border-thick {
+  border: 4px solid var(--brand-black);
+}
+
+/* Neo-Brutalist Hard Drop Shadows */
+.neo-shadow {
+  box-shadow: 4px 4px 0px var(--brand-black);
+}
+
+.neo-shadow-sm {
+  box-shadow: 2.5px 2.5px 0px var(--brand-black);
+}
+
+.neo-shadow-lg {
+  box-shadow: 7px 7px 0px var(--brand-black);
+}
+
+/* Neo-Brutalist Interactive Buttons */
+.neo-btn {
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--brand-black);
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--brand-black);
+}
+
+/* Card Hover Elevation */
+.neo-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-card-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 6px 6px 0px var(--brand-black);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-off-white);
+  border-left: 2px solid var(--brand-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-yellow);
+  border: 2px solid var(--brand-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-cyan);
+}
+
+/* Neo-Brutalist Mobile Hamburger & Drawer Styles */
+#mobile-menu-btn.active .hamburger-bar:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+#mobile-menu-btn.active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#mobile-menu-btn.active .hamburger-bar:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+#mobile-menu:not(.hidden) {
+  display: flex;
+  animation: slideDownNeo 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDownNeo {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
